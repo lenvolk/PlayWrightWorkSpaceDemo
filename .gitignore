@@ -1,3 +1,12 @@
+# Demo and workspace artifacts
+logs/
+demo/locust_swagger.py
+demo/locust_postman.py
+demo/__pycache__/
+demo/.venv/
+demo/env/
+demo/.ipynb_checkpoints/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

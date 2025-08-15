@@ -1,0 +1,23 @@
+{
+  "info": {
+    "name": "Sample Postman Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Hello Request",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/hello",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["hello"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
