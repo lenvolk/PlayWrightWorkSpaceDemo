@@ -1,0 +1,40 @@
+{
+  "name": "swagger-postman-demo",
+  "version": "1.0.0",
+  "description": "Demo for converting Swagger/Postman to Locust and Playwright tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:azure": "playwright test --config=playwright.service.config.ts",
+    "test:single": "playwright test --config=playwright.service.config.ts tests/example.spec.ts",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "install:playwright": "playwright install",
+    "install:azure": "npm init @azure/playwright@beta",
+    "mcp:start": "powershell -ExecutionPolicy Bypass -File mcp/manage-mcp.ps1 -Action start",
+    "mcp:stop": "powershell -ExecutionPolicy Bypass -File mcp/manage-mcp.ps1 -Action stop",
+    "mcp:status": "powershell -ExecutionPolicy Bypass -File mcp/manage-mcp.ps1 -Action status",
+    "mcp:restart": "powershell -ExecutionPolicy Bypass -File mcp/manage-mcp.ps1 -Action restart",
+    "mcp:config": "powershell -ExecutionPolicy Bypass -File mcp/manage-mcp.ps1 -Action config",
+    "demo:traditional": "python mock-api-server.py & npm run test & python -m locust -f locust_swagger.py",
+    "demo:mcp": "npm run mcp:start && node mcp/output/swagger-mcp-commands.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "dependencies": {},
+  "keywords": [
+    "playwright",
+    "azure",
+    "swagger",
+    "postman",
+    "locust",
+    "testing",
+    "load-testing",
+    "e2e-testing"
+  ],
+  "author": "Demo",
+  "license": "MIT"
+}

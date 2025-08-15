@@ -1,11 +1,16 @@
 openapi: 3.0.0
 info:
   title: Sample API
+  description: Demo API for testing Swagger to Locust/Playwright conversion
   version: 1.0.0
+servers:
+  - url: http://localhost:5000
+    description: Local development server
 paths:
   /hello:
     get:
       summary: Returns a greeting
+      description: Simple greeting endpoint
       responses:
         '200':
           description: A successful response
@@ -16,3 +21,78 @@ paths:
                 properties:
                   message:
                     type: string
+                    example: "Hello, World!"
+  /users:
+    get:
+      summary: Get all users
+      description: Returns a list of all users
+      responses:
+        '200':
+          description: List of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    email:
+                      type: string
+    post:
+      summary: Create a new user
+      description: Creates a new user with the provided data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  email:
+                    type: string
+  /users/{userId}:
+    get:
+      summary: Get user by ID
+      description: Returns a specific user by their ID
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: User details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  email:
+                    type: string
+        '404':
+          description: User not found

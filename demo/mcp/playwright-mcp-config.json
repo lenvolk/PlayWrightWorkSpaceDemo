@@ -1,0 +1,37 @@
+{
+  "browserConfig": {
+    "browser": "chromium",
+    "headless": false,
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "ignoreHttpsErrors": true,
+    "slowMo": 100
+  },
+  "outputConfig": {
+    "outputDir": "./mcp/output",
+    "saveTrace": true,
+    "saveSession": true,
+    "screenshotMode": "only-on-failure"
+  },
+  "networkConfig": {
+    "allowedOrigins": [
+      "http://localhost:5000",
+      "https://api.example.com",
+      "https://*.azure.com"
+    ],
+    "blockedOrigins": [
+      "https://ads.google.com",
+      "https://doubleclick.net"
+    ],
+    "proxyServer": null
+  },
+  "contextOptions": {
+    "storageState": null,
+    "permissions": ["geolocation", "notifications"],
+    "locale": "en-US",
+    "timezoneId": "America/New_York"
+  }
+}
