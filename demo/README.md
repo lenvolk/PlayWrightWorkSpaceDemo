@@ -26,9 +26,9 @@ python postman_to_locust.py postman-sample.json locust_postman.py
 
 ### 3. Run Locust tests
 ```powershell
-locust -f locust_swagger.py
+python -m locust -f locust_swagger.py
 # or
-locust -f locust_postman.py
+python -m locust -f locust_postman.py
 ```
 
 Open http://localhost:8089 in your browser to start the test.
