@@ -7,9 +7,7 @@
       ],
       "env": {
         "AZURE_SUBSCRIPTION_ID": "${AZURE_SUBSCRIPTION_ID}",
-        "AZURE_TENANT_ID": "${AZURE_TENANT_ID}",
-        "AZURE_CLIENT_ID": "${AZURE_CLIENT_ID}",
-        "AZURE_CLIENT_SECRET": "${AZURE_CLIENT_SECRET}"
+        "AZURE_RESOURCE_GROUP": "${AZURE_RESOURCE_GROUP}"
       }
     },
     "playwright-mcp": {
@@ -21,19 +19,6 @@
         "--save-session",
         "--output-dir", "./mcp/output"
       ]
-    },
-    "azure-load-testing": {
-      "command": "npx",
-      "args": [
-        "@azure/mcp-server@latest",
-        "--namespace", "loadtesting",
-        "--mode", "namespace"
-      ],
-      "env": {
-        "AZURE_SUBSCRIPTION_ID": "${AZURE_SUBSCRIPTION_ID}",
-        "AZURE_RESOURCE_GROUP": "${AZURE_RESOURCE_GROUP}",
-        "AZURE_LOAD_TEST_RESOURCE": "${AZURE_LOAD_TEST_RESOURCE}"
-      }
     }
   },
   "version": "1.0"

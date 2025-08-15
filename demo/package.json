@@ -20,11 +20,12 @@
     "demo:mcp": "npm run mcp:start && node mcp/output/swagger-mcp-commands.js"
   },
   "devDependencies": {
+    "@azure/identity": "^4.11.1",
+    "@azure/playwright": "^1.0.0-beta.2",
     "@playwright/test": "^1.40.0",
-    "@types/node": "^20.0.0",
+    "@types/node": "^20.19.11",
     "dotenv": "^16.0.0"
   },
-  "dependencies": {},
   "keywords": [
     "playwright",
     "azure",
