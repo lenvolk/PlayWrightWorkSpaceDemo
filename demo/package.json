@@ -1,22 +1,31 @@
 {
-  "name": "swagger-postman-demo",
+  "name": "azure-playwright-workspaces-demo",
   "version": "1.0.0",
-  "description": "Demo for converting Swagger/Postman to Locust and Playwright tests",
+  "description": "Comprehensive demo for Azure Playwright Workspaces with API and Web UI testing",
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
     "test:azure": "playwright test --config=playwright.service.config.ts",
-    "test:single": "playwright test --config=playwright.service.config.ts tests/example.spec.ts",
+    "test:azure:api": "playwright test tests/swagger-generated.spec.ts tests/postman-generated.spec.ts --config=playwright.service.config.ts",
+    "test:azure:webui": "playwright test tests/web-ui-tests.spec.ts --config=playwright.service.config.ts",
+    "test:azure:comprehensive": "playwright test --config=playwright.service.config.ts --workers=5",
+    "test:azure:single": "playwright test --config=playwright.service.config.ts tests/example.spec.ts",
+    "test:local": "playwright test --config=playwright.config.ts",
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
+    "demo:azure": "powershell -ExecutionPolicy Bypass -File run-azure-demo.ps1",
+    "demo:azure:api": "powershell -ExecutionPolicy Bypass -File run-azure-demo.ps1 -TestType API",
+    "demo:azure:webui": "powershell -ExecutionPolicy Bypass -File run-azure-demo.ps1 -TestType WebUI",
+    "demo:azure:all": "powershell -ExecutionPolicy Bypass -File run-azure-demo.ps1 -TestType All -Workers 10",
     "install:playwright": "playwright install",
     "install:azure": "npm init @azure/playwright@beta",
+    "server:start": "python mock-api-server.py",
     "mcp:start": "powershell -ExecutionPolicy Bypass -File mcp/manage-mcp.ps1 -Action start",
     "mcp:stop": "powershell -ExecutionPolicy Bypass -File mcp/manage-mcp.ps1 -Action stop",
     "mcp:status": "powershell -ExecutionPolicy Bypass -File mcp/manage-mcp.ps1 -Action status",
     "mcp:restart": "powershell -ExecutionPolicy Bypass -File mcp/manage-mcp.ps1 -Action restart",
     "mcp:config": "powershell -ExecutionPolicy Bypass -File mcp/manage-mcp.ps1 -Action config",
-    "demo:traditional": "python mock-api-server.py & npm run test & python -m locust -f locust_swagger.py",
+    "demo:traditional": "python mock-api-server.py & npm run test:local & python -m locust -f locust_swagger.py",
     "demo:mcp": "npm run mcp:start && node mcp/output/swagger-mcp-commands.js"
   },
   "devDependencies": {
@@ -27,15 +36,18 @@
     "dotenv": "^16.0.0"
   },
   "keywords": [
-    "playwright",
     "azure",
+    "playwright",
+    "workspaces",
+    "api-testing",
+    "web-ui-testing",
     "swagger",
     "postman",
     "locust",
-    "testing",
-    "load-testing",
-    "e2e-testing"
+    "cloud-testing",
+    "e2e-testing",
+    "cross-browser"
   ],
-  "author": "Demo",
+  "author": "Azure Playwright Demo",
   "license": "MIT"
 }
