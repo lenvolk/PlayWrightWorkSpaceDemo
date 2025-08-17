@@ -324,9 +324,37 @@ Test run created successfully.
 
 **🌟 The API testing demonstration alone provides a comprehensive, impressive, and production-ready solution that significantly surpasses traditional Azure Load Testing capabilities for API validation.**
 
----
 
 ## 🧪 Dual Testing Workflows
+
+## 🛑 Azure Portal Test Run Details Limitation & Programmatic Workaround
+
+### **Portal Limitation (Preview Feature)**
+- The Azure Playwright Workspaces portal only stores test run metadata (start/end time, status, who ran the test, etc.).
+- **It does NOT display per-test results, trace files, screenshots, or detailed artifacts.**
+- This is a known limitation documented by Microsoft for the preview release.
+- You will see "SERVER_COMPLETE" and basic info, but not individual test details.
+
+### **How to Output Full Test Results Programmatically**
+- **Best Practice:** Use Playwright’s built-in reporters to generate detailed results locally.
+- Add this to your Playwright config:
+   ```typescript
+   reporter: [
+      ['list'],
+      ['html', { outputFolder: 'playwright-report' }],
+      ['json', { outputFile: 'results.json' }]
+   ]
+   ```
+- After running tests, you’ll have:
+   - A local HTML report (`playwright-report/index.html`)
+   - A JSON file (`results.json`) with all test details
+- **You can parse the JSON file or open the HTML report for full visibility.**
+- The terminal will also show a summary and a link to the test run in the Playwright portal.
+
+**References:**
+- [Microsoft Docs: Manage workspaces in Microsoft Playwright Testing Preview](https://learn.microsoft.com/en-us/azure/playwright-testing/how-to-manage-playwright-workspace#display-the-workspace-activity-log)
+- [Microsoft Docs: Quickstart - Generate rich reports for tests](https://learn.microsoft.com/en-us/azure/playwright-testing/quickstart-generate-rich-reports-for-tests#run-your-tests-and-publish-results-on-microsoft-playwright-testing)
+
 
 ### **🌩️ Primary: Azure Cloud Testing (API + Web UI)**
 ```powershell
