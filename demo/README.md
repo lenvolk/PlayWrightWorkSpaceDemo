@@ -329,6 +329,8 @@ Test run created successfully.
 
 ## 🛑 Azure Portal Test Run Details Limitation & Programmatic Workaround
 
+> For a dedicated explanation and step-by-step workarounds, see: [Playwright Portal Limitations & Workarounds](./PLAYWRIGHT_PORTAL_LIMITATION.md)
+
 ### **Portal Limitation (Preview Feature)**
 - The Azure Playwright Workspaces portal only stores test run metadata (start/end time, status, who ran the test, etc.).
 - **It does NOT display per-test results, trace files, screenshots, or detailed artifacts.**
